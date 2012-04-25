@@ -10,6 +10,7 @@ There is currently no planned structure or hierarchy in this repository, since I
 Current Examples
 ----------------
 
+* Pseudocode
 * Skip list
 
 Usage
@@ -29,3 +30,9 @@ One of my goals here is to collect other examples, especially since I am still l
 If you would like to contribute (adding new examples, fixing mistakes, suggesting alternatives, etc), please send me a pull request.
 
 For now, please let me handle directories and organization on my own. Send me a pull request containing one or more new files, and I will find a way to organize it.
+
+Contributors
+------------
+
+* David Hu
+* Ming-Ho Yee

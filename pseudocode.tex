@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pseudocode.tex
+% An example demonstrating the use of the algorithmicx package to write
+% pseudocode.
+% http://mirror.csclub.uwaterloo.ca/CTAN/macros/latex/contrib/algorithmicx/algorithmicx.pdf
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% For mathematical symbols such as floors in our pseudocode
+\usepackage{amsmath}
+
+% Use the algorithmicx package for pseudocode
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% For fancy borders around figures. This is optional.
+\restylefloat{figure}
+
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% A numbered list
+\begin{enumerate}
+
+  \item
+  % Note that `pdflatex` will need to be invoked at least twice for figure
+  % reference numbers to be resolved.
+  Exercise: Explain in high-level terms the intention of the algorithm in Figure \ref{code:mystery}. Bonus points for knowing the mathematical term for a \texttt{mystery}.
+
+  % A figure environment for fancy borders, captions, and to appear in a ToC.
+  \begin{figure}
+    \caption{What does this do?}
+
+    % This lets us refer to this figure by a number elsewhere in the document.
+    \label{code:mystery}
+
+    % Begin pseudocode. The [1] tells algorithmic to number every line.
+    % Set to n to number every n lines. Omit it to hide line numbers.
+    \begin{algorithmic}[1]
+      \Function{FindMysteries}{$S, k$}
+        \If{$k \le 1$}
+          \State \textbf{return} $\{\}$ \Comment{The empty set $\emptyset$}
+        \EndIf
+        \State $n \gets |S|$ \Comment{Cardinality of $S$}
+        \State $k \gets \Call{Min}{k, n + 1}$ \Comment{Since maximum of $n$ mysteries}
+        \State $r\gets \lfloor \lfloor k/2 \rfloor (\tfrac{n+1}{k}) \rfloor$ \Comment{1-indexed rank of the pivot}
+        \State $p \gets \Call{MedianOfMediansSelect}{S, r}$ \Comment{element of rank $r$}
+        \State $S_1 \gets \{ x \in S : x < p \}$
+        \State $S_2 \gets \{ x \in S : x > p \}$
+        \State \textbf{return} $\Call{FindMysteries}{S_1, \lfloor k/2 \rfloor} \cup\{ p \} \cup \Call{FindMysteries}{S_2, \lceil k/2 \rceil}$
+      \EndFunction
+    \end{algorithmic}
+
+  \end{figure}
+
+  \item
+  Here's an example with a loop. Don't try to interpret this one.
+
+  % This is a stripped-down example of just the pseudocode. It is not wrapped
+  % with the `figure` environment or labelled, although that is good practice.
+  \begin{algorithmic}
+    \Function{Example2}{$f, x$}
+      \For{\textbf{each} cow $C$ in $f$}
+        \State $l \gets \text{an arbitrary llama in $C$}$
+        \State \text{set $l$ to True}
+        \State $result \gets \Call{Complicate}{f, l}$
+        \If {$result \not = \text{UNKNOWN}$}
+          \State \text{\textbf{return} result}
+        \EndIf
+      \EndFor
+    \EndFunction
+  \end{algorithmic}
+
+\end{enumerate}
+
+\end{document}
