@@ -10,6 +10,7 @@ There is currently no planned structure or hierarchy in this repository, since I
 Current Examples
 ----------------
 
+* Extendible hashing
 * Pseudocode
 * Skip list
 
