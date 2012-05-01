@@ -19,7 +19,7 @@ Current Examples
 Usage
 -----
 
-1. [Download and install LaTeX](http://www.latex-project.org/ftp.html), if you don't already have it.
+1. [Download and install LaTeX](http://www.latex-project.org/ftp.html), if you don't already have it. If you don't know LaTeX, [The Not So Short Introduction LaTeX2e](http://tobi.oetiker.ch/lshort/lshort.pdf) is a pretty good resource.
 2. Clone this repository.
 3. Use `pdflatex` to compile the examples
 4. ???
