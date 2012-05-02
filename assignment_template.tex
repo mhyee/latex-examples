@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% assignment_template.tex
+% A template for assignments
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% Packages for the math proof in this example
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+% Set the margins
+\newcommand{\margin}{2cm}
+\usepackage[top=\margin,right=\margin,left=\margin,bottom=\margin]{geometry}
+
+% Use fancyhdr to define our own headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{25pt} % Keeps LaTeX happy, takes care of some warnings
+\pagestyle{fancy}
+
+% Definitions to fill the header with
+% EDIT THESE FIELDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\course}{\LaTeX{} 101}
+\newcommand{\assignment}{Assignment N}
+\newcommand{\name}{J. Random Student}
+\newcommand{\id}{123456789}
+\renewcommand{\date}{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Now define the header. Make the text bold.
+% We'll get something like:
+%
+% 123456789             LaTeX 101
+% J. Random Student   Assignment N      Today's Date
+% --------------------------------------------------
+%
+% This layout is pretty simple, and should be enough for an assignment
+% If you want more, you can consult the documentation
+% http://www.ctan.org/tex-archive/macros/latex/contrib/fancyhdr/fancyhdr.pdf
+\lhead{\textbf{\id\\ \name}}
+\chead{\textbf{\course\\ \assignment}}
+\rhead{\textbf{\date}}
+
+% Here is an example for customising the numbering
+% It changes the first level of numbering to bolded (a), (b), (c), etc
+\renewcommand{\theenumi}{\textbf{(\alph{enumi})}}
+\renewcommand{\labelenumi}{\theenumi}
+% Other options to play with are to change \theenumii, \labelenumii, and enumii for the second level of nesting,
+% and so on to \theenumiv, \labelenumiv, and enumiv for the fourth level of nesting.
+% The possible formats are \arabic (1, 2...), \alph (a, b...), \Alph (A, B...), \roman (i, ii...), and \Roman (I, II...)
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+  \section*{Problem 1}
+    \begin{enumerate}
+      \item
+      The answer to life, the universe, and everything is 42.
+
+      \item
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada mollis diam a rutrum. Maecenas eget hendrerit velit. Cras non nulla quis justo lacinia eleifend. Cras orci ipsum, consectetur at gravida non, laoreet sit amet diam. Integer laoreet malesuada nisi tincidunt tincidunt. Nullam non augue ultrices nulla ornare venenatis. Maecenas consectetur blandit urna, non laoreet nulla pharetra ac. Donec feugiat commodo felis sed luctus. Nulla facilisi. Phasellus mattis felis eget nulla posuere eleifend. Fusce risus arcu, feugiat id accumsan ac, semper nec turpis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent pellentesque cursus orci, et venenatis tortor iaculis ac.
+
+      \item
+      Bacon ipsum dolor sit amet shankle pork chop venison tail t-bone chuck, ham shoulder. Speck tenderloin chuck venison beef, meatloaf tail pig ribeye sausage. Pancetta t-bone shank jerky, venison tri-tip boudin shoulder sirloin. Flank prosciutto fatback kielbasa, turkey turducken cow pork chop bacon ball tip chuck shank ham hock tail.
+    \end{enumerate}
+
+  \section*{Problem 2}
+    \begin{enumerate}
+      \item
+      Are there irrational numbers $a, b$ such that $a^b$ is rational?
+
+      \begin{proof}
+        Suppose $\sqrt{2}^{\sqrt{2}}$ is rational. Then we are done.
+
+        Otherwise, $\sqrt{2}^{\sqrt{2}}$ is irrational. Then let $a = \sqrt{2}^{\sqrt{2}}$ and let $b=\sqrt{2}$. So we have
+        % \Bigg and \bigg adjust the size of the parentheses
+        % \! is a negative space
+        \[ a^b = \Bigg(\!\sqrt{2}^{\sqrt{2}}\Bigg)^{\sqrt{2}} = \sqrt{2}^{\sqrt{2} \cdot \sqrt{2}} = \bigg(\!\sqrt{2}\bigg)^2 = 2. \]
+
+        The proof that $\sqrt{2}$ is irrational is left as an exercise for the reader.
+      \end{proof}
+    \end{enumerate}
+
+\end{document}
+

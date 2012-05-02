@@ -10,6 +10,7 @@ There is currently no planned structure or hierarchy in this repository, since I
 Current Examples
 ----------------
 
+* Assignment template
 * B-tree
 * Binary search tree
 * Equations
