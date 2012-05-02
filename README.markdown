@@ -12,6 +12,7 @@ Current Examples
 
 * B-tree
 * Binary search tree
+* Equations
 * Extendible hashing
 * Pseudocode
 * Skip list

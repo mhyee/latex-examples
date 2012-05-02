@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% equations.tex
+% An example demonstrating the use of the amsmath package to typset equations
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% amsmath is part of the AMS-LaTeX bundle, which provides support for typesetting math
+% This is for when pure LaTeX isn't powerful enough
+\usepackage{amsmath}
+
+% Required for the proof environment
+\usepackage{amsthm}
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% Disable page numbering
+\pagestyle{empty}
+
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% For more LaTeX math examples, the Not So Short Introduction to LaTeX2e has an excellent chapter on typsetting math
+% http://tobi.oetiker.ch/lshort/lshort.pdf
+
+  % To typset math within a paragraph (text style), use $ as delimiters
+  Let $[x^n]f(x)$ be defined as the \emph{coefficient extraction operator}, which extracts the coefficient of $x^n$ from the function $f(x)$. For example,
+    % To break the math out of a paragraph (display style), use \begin{equation} and \end{equation}
+    % This will also number the equations
+    % To suppress numbering, use \begin{equation*} and \end{equation*}
+    \begin{equation*}
+      [x^2](23x^3-2x^2+383x-87) = -2.
+    \end{equation*}
+  Show that
+    % \[ and \] are shorthands for \begin{equation*} and \end{equation*}
+    \[ [x^3](2x+7)^5 = 3920. \]
+
+  % The proof environment lets you end your proof with the "end of proof" symbol
+  \begin{proof}
+    % To align equations, use \begin{align} and \end{align}, or \begin{align*} and \end{align*}
+    % Do not use eqnarray! eqnarray is old and broken, see http://www.tug.org/pracjourn/2006-4/madsen/madsen.pdf
+    \begin{align*}
+      % Note how "{} &" is used for alignment, and every line ends with \\
+      % If you aren't breaking an equation into multiple lines, you can use "&= math" instead of "= {} & math"
+      %
+      % \, inserts is a small space
+      [x^3](2x+7)^5 = {} & [x^3] \sum_{k=0}^{5} \binom{5}{k} (2x)^{5-k}\, 7^k \\
+                    = {} & [x^3] \Bigg[ \binom{5}{0} (2x)^5\, 7^0+ \binom{5}{1} (2x)^4\, 7^1 + \binom{5}{2} (2x)^3\, 7^2 \\
+                         & + \binom{5}{3} (2x)^2\, 7^3 + \binom{5}{4} (2x)^1\, 7^4 + \binom{5}{5} (2x)^0\, 7^5  \Bigg] \\
+                    = {} & [x^3] \binom{5}{2} (2x)^3\, 7^2 \\
+                    = {} & 10 \cdot 8 \cdot 49 \\
+                    % Use \qedhere to put the symbol on the same line as the last equation
+                    = {} & 3920 \qedhere
+    \end{align*}
+  \end{proof}
+
+\end{document}
