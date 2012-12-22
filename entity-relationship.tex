@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% entity-relationship.tex
+% An example demonstrating the use of the tikz-er2 package for drawing
+% entity-relationship diagrams
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% Entity-relationsip package
+\usepackage{tikz-er2}
+% Include tikz library for more control over positioning
+\usetikzlibrary{positioning}
+% Styling for entities, attributes, and relationships
+\tikzstyle{every entity} = [draw=blue!50!black!100, fill=blue!20]
+\tikzstyle{every attribute} = [draw=yellow!50!black!100, fill=yellow!20]
+\tikzstyle{every relationship} = [draw=green!50!black!100, fill=green!20]
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% This is a very, very basic example of how to draw an ER diagram with Tikz
+% The package also allows for weak entities, aggregations, and inheritance.
+% Positioning, edge labels, and edge styles are done the normal Tikz way,
+% the package just provides shortcuts for the common shapes and relationships
+% from the ER model.
+
+% You can find the package and documentation at:
+% https://www.assembla.com/wiki/show/tikz-er2
+\begin{center}
+\begin{tikzpicture}[node distance=6em, every edge/.style={link}]
+
+  \node[entity] (emp) {Employee};
+    \node[attribute] (e_id) [left=2em of emp] {\key{ID}} edge (emp);
+    \node[attribute] (e_name) [right=2em of emp] {Name} edge (emp);
+    \node[attribute] (e_sal) [above=2em of emp] {Salary} edge (emp);
+
+  \node[relationship] (works) [below of=emp, node distance=8em] {WorksIn} edge (emp);
+
+  \node[entity] (dept) [below of=works, node distance=8em] {Department} edge (works);
+    \node[attribute] (d_num) [left=2em of dept] {\key{Num}} edge (dept);
+    \node[attribute] (d_name) [right=2em of dept] {Name} edge (dept);
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
