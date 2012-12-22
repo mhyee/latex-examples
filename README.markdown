@@ -13,10 +13,13 @@ Current Examples
 * Assignment template
 * B-tree
 * Binary search tree
+* dot2tex - figures drawn in the Dot language
+* Entity-Relationship diagram
 * Equations
 * Extendible hashing
 * Pseudocode
 * Skip list
+* Source code
 
 Usage
 -----
