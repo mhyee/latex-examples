@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% source_code.tex
+% An example demonstrating the use of the minted package for including source
+% code
+% This file must be compiled with the "-shell-escape" flag
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% Syntax highlighting
+\usepackage{minted}
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+Here is an example of FizzBuzz, implemented in C++. The task is to write a
+program that prints the integers from 1 to 100, inclusive. However, numbers
+divisible by 3 should be replaced with \texttt{Fizz}, numbers divisible by 5
+should be replaced with \texttt{Buzz}, and numbers divisible by both 3 and 5
+should be replaced with \texttt{FizzBuzz}.
+
+% For more information about minted, see:
+% http://code.google.com/p/minted/
+\begin{minted}[linenos,numbersep=5pt,gobble=2,frame=lines,framesep=5pt]{c++}
+  #include <iostream>
+  using namespace std;
+
+  int main() {
+          for ( int i = 1; i <= 100; i++ ) {
+                  if ( i % 15 == 0 ) {
+                          cout << "FizzBuzz";
+                  } else if ( i % 3 == 0 ) {
+                          cout << "Fizz";
+                  } else if ( i % 5 == 0 ) {
+                          cout << "Buzz";
+                  } else {
+                          cout << i;
+                  }
+                  cout << endl;
+          }
+          return 0;
+  }
+\end{minted}
+
+\end{document}
