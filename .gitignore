@@ -2,3 +2,6 @@
 *.log
 *.pdf
 *.swp
+*.dot
+*.pyg
+dot2tex-dot2tex*

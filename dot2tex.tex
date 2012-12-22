@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dot2tex.tex
+% An example demonstrating the use of the dot2texi package for drawing diagrams
+% in dot syntax and compiling them to Tikz. This process is slower than drawing
+% in Tikz, but may be more convenient for simple diagrams.
+% This file must be compiled with the "-shell-escape" flag
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% Draw in dot format
+\usepackage{dot2texi}
+
+% NOTE: tikz is not automatically included!
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Example taken from "Drawing graphs with dot" by Gansner, Koutsofios, and North
+% http://www.graphviz.org/pdf/dotguide.pdf
+
+\begin{dot2tex}
+digraph G {
+     main -> parse -> execute;
+     main -> init;
+     main -> cleanup;
+     execute -> make_string;
+     execute -> printf
+     init -> make_string;
+     main -> printf;
+     execute -> compare;
+}
+\end{dot2tex}
+
+\end{document}
