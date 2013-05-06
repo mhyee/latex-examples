@@ -30,6 +30,11 @@ Usage
 4. ???
 5. Profit.
 
+License
+-------
+
+MIT License
+
 Contributing
 ------------
 
