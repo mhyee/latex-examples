@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% colours.tex
+% An example demonstrating the use of the xcolor package to add colours
+% https://github.com/mhyee/latex-examples/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% LaTeX Preamble
+% Load packages and set options as needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class to "article"
+% Pass it "letterpaper" option
+\documentclass[letterpaper]{article}
+
+% We don't need the special font encodings, but still
+% good practice to include these. See:
+%
+% http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% http://dsanta.users.ch/resources/type1.html
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+% Colours -- see xcolor documentation for more details
+% x11names allows us to refer to over 300 colours by name
+\usepackage[x11names]{xcolor}
+
+% Define indigo as a custom colour
+\definecolor{indigo}{RGB}{75,0,130}
+
+% Define some macros for convenience
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\yellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\indigo}[1]{\textcolor{indigo}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+
+\newcommand{\redbg}[1]{\colorbox{red}{#1}}
+\newcommand{\orangebg}[1]{\colorbox{orange}{#1}}
+\newcommand{\yellowbg}[1]{\colorbox{yellow}{#1}}
+\newcommand{\greenbg}[1]{\colorbox{green}{#1}}
+\newcommand{\bluebg}[1]{\colorbox{blue}{#1}}
+\newcommand{\indigobg}[1]{\colorbox{indigo}{#1}}
+\newcommand{\violetbg}[1]{\colorbox{violet}{#1}}
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% Disable page numbering
+\pagestyle{empty}
+
+
+% Begin the actual typesetting, by starting the "document" environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Making the text bold so it's easier to see the colours
+\textbf{
+\red{Richard} \orange{Of} \yellow{York} \green{Gave} \blue{Battle} \indigo{In}
+\violet{Vain}
+}
+
+\red{Using a macro} is much easier than \textcolor{red}{directly using the
+command}, or the {\color{red}other direct way}.
+
+We can even use background colours: \redbg{R}\orangebg{o}\yellowbg{y}
+\greenbg{G}. \bluebg{B}\indigobg{i}\violetbg{v}
+
+\end{document}

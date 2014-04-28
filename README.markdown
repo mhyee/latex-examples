@@ -13,6 +13,7 @@ Current Examples
 * Assignment template
 * B-tree
 * Binary search tree
+* Colours
 * dot2tex - figures drawn in the Dot language
 * Entity-Relationship diagram
 * Equations
