@@ -16,17 +16,20 @@ start organizing examples into directories.
 Current Examples
 ----------------
 
-* Assignment template
-* B-tree
-* Binary search tree
-* Colours
-* dot2tex - figures drawn in the Dot language
-* Entity-Relationship diagram
-* Equations
-* Extendible hashing
-* Pseudocode
-* Skip list
-* Source code
+Screenshots of the compiled LaTeX can be found on the
+[wiki](https://github.com/mhyee/latex-examples/wiki).
+
+* [Assignment template](https://github.com/mhyee/latex-examples/wiki#assignment-template)
+* [B-tree](https://github.com/mhyee/latex-examples/wiki#b-tree)
+* [Binary search tree](https://github.com/mhyee/latex-examples/wiki#binary-search-tree)
+* [Colours](https://github.com/mhyee/latex-examples/wiki#colours)
+* [dot2tex - figures drawn in the Dot language](https://github.com/mhyee/latex-examples/wiki#dot2tex---figures-drawn-in-the-dot-language)
+* [Entity-Relationship diagram](https://github.com/mhyee/latex-examples/wiki#entity-relationship-diagram)
+* [Equations](https://github.com/mhyee/latex-examples/wiki#equations)
+* [Extendible hashing](https://github.com/mhyee/latex-examples/wiki#extendible-hashing)
+* [Pseudocode](https://github.com/mhyee/latex-examples/wiki#pseudocode)
+* [Skip list](https://github.com/mhyee/latex-examples/wiki#skip-list)
+* [Source code](https://github.com/mhyee/latex-examples/wiki#source-code)
 
 Usage
 -----
