@@ -22,9 +22,25 @@
 % http://dsanta.users.ch/resources/type1.html
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
+% http://tex.stackexchange.com/a/44699
+% http://tex.stackexchange.com/a/44701
+\usepackage[utf8]{inputenc}
+
+% Use Latin Modern, an improved version of the Computer Modern font
+\usepackage{lmodern}
+
+% Nicer monospace font, when we use \texttt
+\usepackage{inconsolata}
 
 % For mathematical symbols such as floors in our pseudocode
-\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+% Not used in this example, but the following packages provide more math fonts
+% and symbols
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathabx}
 
 % Use the algorithmicx package for pseudocode
 \usepackage{algorithm}
@@ -86,7 +102,7 @@
         \State $l \gets \text{an arbitrary llama in $C$}$
         \State \text{set $l$ to True}
         \State $result \gets \Call{Complicate}{f, l}$
-        \If {$result \not = \text{UNKNOWN}$}
+        \If {$result \neq \text{UNKNOWN}$}
           \State \text{\textbf{return} result}
         \EndIf
       \EndFor
